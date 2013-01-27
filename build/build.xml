@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Build File" basedir="../" default="increment swc">
+
+	<description>Build Script for Asynchronous Image Encoders Library</description>
+
+	<property file="${basedir}/build/build.properties" />
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+	<tstamp>
+		<format property="timestamp" pattern="yyyyMMdd" />
+	</tstamp>
+
+	<target name="full build" depends="build swc,build ASDocs" description="compiles library" />
+
+	<!-- ======================================================== -->
+	<!-- SWC ==================================================== -->
+	<!-- ======================================================== -->
+
+	<target name="increment swc">	
+		<property name="incremental" value="true" />
+		<antcall target="compile swc" />
+	</target>
+	
+	<target name="build swc" depends="prepare swc">	
+		<property name="incremental" value="false" />
+		<antcall target="compile swc" />
+	</target>
+
+	<target name="prepare swc">
+		<echo>Preparing SWC Directory</echo>
+		<delete dir="${output.dir}" failOnError="false" includeEmptyDirs="true" />
+		<mkdir dir="${output.dir}" />
+	</target>
+	
+	<target name="compile swc">
+		<echo>Compiling SWC To ${output.dir}</echo>
+		<compc	debug="${debug}"
+				incremental="${incremental}"
+				output="${output.dir}/${output.name}.swc">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+			<source-path path-element="${src.dir}" />
+			<include-sources dir="${src.dir}" includes="*" />
+			<metadata>
+				<creator>Lee Burrows</creator>
+				<publisher></publisher>
+				<language>EN</language>
+			</metadata>
+		</compc>
+	</target>
+
+	<!-- ======================================================== -->
+	<!-- ASDocs ================================================= -->
+	<!-- ======================================================== -->
+
+	<target name="prepare ASDocs">
+		<echo>Preparing ASDocs Directory</echo>
+		<delete dir="${asdocs.output}" failOnError="false" includeEmptyDirs="true" />
+		<mkdir dir="${asdocs.output}" />
+	</target>
+
+	<target name="build ASDocs" depends="prepare ASDocs">
+		<echo>Building ASDocs</echo>
+		<asdoc	output="${asdocs.output}"
+				main-title="${asdocs.title}"
+				footer="${asdocs.footer}"
+				window-title="${asdocs.window}"
+				left-frameset-width="300"
+				failonerror="true" fork="true">
+			<doc-sources path-element="${src.dir}" />
+			<compiler.source-path path-element="${src.dir}" />
+		</asdoc>
+	</target>
+
+</project>

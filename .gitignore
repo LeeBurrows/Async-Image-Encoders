@@ -1,0 +1,14 @@
+# Flash Builder
+
+bin/
+bin-debug/
+bin-release/
+.settings/
+.fxpTemp/
+.metadata/
+
+
+# Windows
+
+Thumbs.db
+Desktop.ini
