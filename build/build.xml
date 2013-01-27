@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Build File" basedir="../" default="increment swc">
+<project name="Build File" basedir="../" default="full build">
 
 	<description>Build Script for Asynchronous Image Encoders Library</description>
 
 	<property file="${basedir}/build/build.properties" />
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
-	<tstamp>
-		<format property="timestamp" pattern="yyyyMMdd" />
-	</tstamp>
 
-	<target name="full build" depends="build swc,build ASDocs" description="compiles library" />
+	<target name="full build" depends="compile swc,build ASDocs" description="compiles SWC and ASDocs" />
 
 	<!-- ======================================================== -->
 	<!-- SWC ==================================================== -->
 	<!-- ======================================================== -->
-
-	<target name="increment swc">	
-		<property name="incremental" value="true" />
-		<antcall target="compile swc" />
-	</target>
-	
-	<target name="build swc" depends="prepare swc">	
-		<property name="incremental" value="false" />
-		<antcall target="compile swc" />
-	</target>
 
 	<target name="prepare swc">
 		<echo>Preparing SWC Directory</echo>
@@ -31,7 +18,7 @@
 		<mkdir dir="${output.dir}" />
 	</target>
 	
-	<target name="compile swc">
+	<target name="compile swc" depends="prepare swc">
 		<echo>Compiling SWC To ${output.dir}</echo>
 		<compc	debug="${debug}"
 				incremental="${incremental}"

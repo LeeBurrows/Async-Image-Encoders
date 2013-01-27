@@ -46,21 +46,25 @@ package com.leeburrows.encoders.supportClasses
 	/** 
 	 * This is the base class for all Asynchronous Image Encoders.
 	 * 
-	 * <p>In order to listen for Event.ENTER_FRAME and dispatch events, this is a subclass of <code>flash.display.Sprite</code>. However, it does not need to be added to the display list to function.</p>
+	 * <p>Encodes BitmapData objects over multiple frames to avoid freezing the UI. Ideally suited for mobile AIR where ActionScript Workers are unavailable.</p>
+	 * 
 	 * <p>To implement your own encoder, create a subclass and override some or all of the core methods:</p>
 	 * <ul>
 	 * <li>initialise()</li>
 	 * <li>encodeHead()</li>
-	 * <li>encodeBody()</li>
+	 * <li>encodeBlock()</li>
 	 * <li>encodeTail()</li>
 	 * </ul>
 	 * <p>When a new instance is created <code>initialise()</code> is called once.</p>
 	 * <p>When start is called:</p>
 	 * <ol>
 	 * <li>encodeHead() is called once.</li>
-	 * <li>encodeBody() is called repeatedly until it returns <code>true</code>.</li>
+	 * <li>encodeBlock() is called repeatedly until it returns <code>true</code>.</li>
 	 * <li>encoderTail() is called once.</li>
 	 * </ol>
+	 * 
+	 * <p>In order to listen for Event.ENTER_FRAME, and dispatch progress and complete events, AsyncImageEncoderBase is a subclass of <code>flash.display.Sprite</code>. However, it does not need to be added to the display list to function.</p>
+	 * 
 	 * @langversion 3.0
 	 * @playerversion Flash 9
 	 * @playerversion AIR 1.5
@@ -126,7 +130,7 @@ package com.leeburrows.encoders.supportClasses
 			if (_isRunning) return null;
 			return _encodedImage;
 		}
-
+		
 		/**
 		 * Creates a new <code>AsyncImageEncoderBase</code>.
 		 * 
@@ -146,11 +150,11 @@ package com.leeburrows.encoders.supportClasses
 		protected function initialise():void
 		{
 		}
-
+		
 		/**
 		 * @inheritDoc
 		 */
-		public function start(source:BitmapData, frameTime:int=30):void
+		public function start(source:BitmapData, frameTime:int=20):void
 		{
 			sourceBitmapData = source.clone();
 			this.frameTime = Math.max(1, frameTime);
@@ -187,7 +191,7 @@ package com.leeburrows.encoders.supportClasses
 			else
 				dispatchEvent(new AsyncImageEncoderEvent(AsyncImageEncoderEvent.PROGRESS, completedPixels, totalPixels));
 		}
-
+		
 		private function encodeBody():Boolean
 		{
 			var isComplete:Boolean = false;
@@ -205,9 +209,9 @@ package com.leeburrows.encoders.supportClasses
 			_isRunning = false;
 			removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		}
-
+		
 		/**
-		 * Called internally before encoding loop begins.
+		 * Called internally before multi-frame loop begins.
 		 * 
 		 * <p>Override to implement actions that need to be run once per image, before the asynchronous looping begins.</p>
 		 */
@@ -216,12 +220,16 @@ package com.leeburrows.encoders.supportClasses
 		}
 		
 		/**
-		 * Called internally during encoding loop.
+		 * Called internally during multi-frame loop.
 		 * 
 		 * <p>Override to implement repeated actions. This method will be called repeatedly on every frame until the frame time is exceeded or <code>true</code> is returned.</p>
-		 * <p>The bulk of encoder processing should be contained within this method. Update <code>completedPixels</code> here to ensure that progress events dispatch accurate values.</p>
+		 * <p>The bulk of encoder processing should be contained within this method.</p>
+		 * <ul>
+		 * <li>Use <code>currentX</code> and <code>currentY</code> to keep track of current position in source BitmapData.</li>
+		 * <li>Update <code>completedPixels</code> here to ensure that progress events dispatch accurate values.</li>
+		 * </ul>
 		 * 
-		 * @return True if main loop processing has completed.
+		 * @return True if loop processing has completed.
 		 */
 		protected function encodeBlock():Boolean
 		{
@@ -229,7 +237,7 @@ package com.leeburrows.encoders.supportClasses
 		}
 		
 		/**
-		 * Called internally after encoding loop ends.
+		 * Called internally after multi-frame loop ends.
 		 * 
 		 * <p>Override to implement actions that need to be run once per image, after asynchronous looping has completed.</p>
 		 */

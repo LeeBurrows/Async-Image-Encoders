@@ -43,7 +43,7 @@ package com.leeburrows.encoders.supportClasses
 		 * @param source The BitmapData object to encode. Encoder clones BitmapData, so original does not need to be retained while encoding occurs.
 		 * @param frameTime Number of milliseconds to spend processing on each frame. 
 		 */
-		function start(source:BitmapData, frameTime:int=30):void
+		function start(source:BitmapData, frameTime:int=20):void
 		
 		/**
 		 * Halts the encoding.
@@ -51,15 +51,15 @@ package com.leeburrows.encoders.supportClasses
 		function stop():void
 		
 		/**
-		 * If <code>true</code>, the encoder is active. The value is <code>false</code> if encoder has finished or has been stopped.
+		 * If <code>true</code>, the encoder is active. If <code>false</code>, the encoder has finished or has been stopped.
 		 */
 		function get isRunning():Boolean
 		
 		/**
-		 * If encoder has finished, this returns the encoded bytes.
+		 * If encoder has finished, returns the encoded bytes.
 		 * 
-		 * <p>If encoder has been stopped, this returns any bytes that have been encoded.</p>
-		 * <p>If encoder is currently running or has never been run, this returns <code>null</code>.</p>
+		 * <p>If encoder has been stopped, returns any bytes that have been encoded.</p>
+		 * <p>If encoder is currently running or has never been run, returns <code>null</code>.</p>
 		 */		
 		function get encodedBytes():ByteArray
 	}

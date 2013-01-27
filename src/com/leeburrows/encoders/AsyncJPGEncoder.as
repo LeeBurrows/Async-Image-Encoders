@@ -53,21 +53,26 @@ package com.leeburrows.encoders
 	 * 		import flash.display.Sprite;
 	 * 		import flash.events.Event;
 	 * 
-	 * 		public class EncoderExample extends Sprite
+	 * 		public class JPGEncoderExample extends Sprite
 	 * 		{
 	 * 			private var encoder:IAsyncImageEncoder;
 	 * 
-	 * 			public function Test()
+	 * 			public function JPGEncoderExample()
 	 * 			{
+	 *				//generate a BitmapData object to encode
 	 * 				var myBitmapData:BitmapData = new BitmapData(1000, 1000, true, 0x80FF9900);
+	 * 				//create a new JPG encoder with 75% quality
 	 * 				encoder = new AsyncJPGEncoder(75);
+	 * 				//add progress and complete listeners
 	 * 				encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
 	 * 				encoder.addEventListener(Event.COMPLETE, encodeCompleteHandler);
+	 * 				//start encoding for 20 milliseconds per frame
 	 * 				encoder.start(myBitmapData, 20);
 	 * 			}
 	 * 
 	 * 			private function encodeProgressHandler(event:AsyncImageEncoderEvent):void
 	 * 			{
+	 * 				//trace progress
 	 * 				trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
 	 * 			}
 	 * 
@@ -75,6 +80,7 @@ package com.leeburrows.encoders
 	 * 			{
 	 * 				encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
 	 * 				encoder.removeEventListener(Event.COMPLETE, encodeCompleteHandler);
+	 * 				//trace size of result
 	 * 				trace("encoding completed:", encoder.encodedBytes.length+" bytes");
 	 * 			}
 	 * 		}
