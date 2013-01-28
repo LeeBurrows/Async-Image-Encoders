@@ -2,8 +2,9 @@
 
 ##ActionScript 3 classes for asynchronously encoding BitmapData source into image file formats
 
-Encodes BitmapData objects over multiple frames to avoid freezing the UI.
-Ideally suited for mobile AIR where ActionScript Workers are unavailable.
+Encodes BitmapData objects over multiple frames to avoid freezing the UI. Ideally suited for mobile AIR where ActionScript Workers are unavailable.
+
+Specify milliseconds per frame to allocate to encoding. Stop processing at any time.
 
 Current supported file formats:
 
