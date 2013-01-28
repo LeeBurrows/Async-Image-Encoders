@@ -3,9 +3,13 @@
 bin/
 bin-debug/
 bin-release/
+html-template/
 .settings/
 .fxpTemp/
 .metadata/
+*.project
+*.actionScriptProperties
+*.flexLibProperties
 
 
 # Windows
