@@ -129,7 +129,7 @@ package com.leeburrows.encoders
 			//and a bit wasteful to check clock after every pixel.
 			for (var i:uint=0;i<sourceWidth;i++)
 			{
-				_encodedBytes.writeUnsignedInt(sourceBitmapData.getPixel(i, sourceHeight-currentY));
+				_encodedBytes.writeUnsignedInt(sourceBitmapData.getPixel(i, sourceHeight-1-currentY));
 			}
 			completedPixels += sourceWidth;
 			currentY++;
