@@ -8,8 +8,9 @@ Specify milliseconds per frame to allocate to encoding. Stop processing at any t
 
 Current supported file formats:
 
-* JPG
-* PNG
+* .JPG
+* .PNG
+* .BMP
 
 Others can be added by sub-classing AsyncImageEncoderBase to implement asynchronous processing.
 See ASDocs for further details on implementing your own encoders.
@@ -19,7 +20,7 @@ A simple usage example:
 
 	package
 	{
-		import com.leeburrows.encoders.AsyncJPGEncoder;
+		import com.leeburrows.encoders.AsyncPNGEncoder;
 		import com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent;
 		import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
 		import flash.display.BitmapData;
