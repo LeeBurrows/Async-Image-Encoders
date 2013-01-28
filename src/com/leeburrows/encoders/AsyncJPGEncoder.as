@@ -378,6 +378,7 @@ package com.leeburrows.encoders
 		
 		private function initQuantTables():void
 		{
+			trace("setting quality: ", _quality);
 			var clippedQuality:Number = Math.max(1, Math.min(100, _quality));
 			var sf:int = (clippedQuality<50) ? int(5000/clippedQuality) : int(200-clippedQuality*2);
 			var i:int = 0;
@@ -677,7 +678,7 @@ package com.leeburrows.encoders
 		
 		private function writeByte(value:int):void
 		{
-			_encodedImage.writeByte(value);
+			_encodedBytes.writeByte(value);
 		}
 		
 		private function writeWord(value:int):void

@@ -74,7 +74,7 @@ package com.leeburrows.encoders.supportClasses
 		/**
 		 * Internal storage for encoded bytes.
 		 */
-		protected var _encodedImage:ByteArray = null;
+		protected var _encodedBytes:ByteArray = null;
 		/**
 		 * Internal storage for encoder status.
 		 */
@@ -128,7 +128,7 @@ package com.leeburrows.encoders.supportClasses
 		public function get encodedBytes():ByteArray
 		{
 			if (_isRunning) return null;
-			return _encodedImage;
+			return _encodedBytes;
 		}
 		
 		/**
@@ -159,7 +159,7 @@ package com.leeburrows.encoders.supportClasses
 			sourceBitmapData = source.clone();
 			this.frameTime = Math.max(1, frameTime);
 			_isRunning = true;
-			_encodedImage = new ByteArray();
+			_encodedBytes = new ByteArray();
 			sourceWidth = sourceBitmapData.width;
 			sourceHeight = sourceBitmapData.height;
 			sourceTransparent = sourceBitmapData.transparent;
@@ -205,7 +205,7 @@ package com.leeburrows.encoders.supportClasses
 		
 		private function cleanUp():void
 		{
-			_encodedImage.position = 0;
+			_encodedBytes.position = 0;
 			_isRunning = false;
 			removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		}

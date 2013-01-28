@@ -46,7 +46,7 @@ package com.leeburrows.encoders
 	 * <listing version="3.0">
 	 * package
 	 * {
-	 * 		import com.leeburrows.encoders.AsyncJPGEncoder;
+	 * 		import com.leeburrows.encoders.AsyncPNGEncoder;
 	 * 		import com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent;
 	 * 		import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
 	 * 		import flash.display.BitmapData;
@@ -130,8 +130,8 @@ package com.leeburrows.encoders
 		override protected function encodeHead():void
 		{
 			// Write PNG signature
-			_encodedImage.writeUnsignedInt(0x89504E47);
-			_encodedImage.writeUnsignedInt(0x0D0A1A0A);
+			_encodedBytes.writeUnsignedInt(0x89504E47);
+			_encodedBytes.writeUnsignedInt(0x0D0A1A0A);
 			// Build IHDR chunk
 			var IHDR:ByteArray = new ByteArray();
 			IHDR.writeInt(sourceWidth);
@@ -141,7 +141,7 @@ package com.leeburrows.encoders
 			IHDR.writeByte(0); // compression method
 			IHDR.writeByte(0); // filter method
 			IHDR.writeByte(0); // interlace method
-			writeChunk(_encodedImage, 0x49484452, IHDR);
+			writeChunk(_encodedBytes, 0x49484452, IHDR);
 			// Image
 			IDAT = new ByteArray();
 			IDAT.writeByte(0);
@@ -154,6 +154,9 @@ package com.leeburrows.encoders
 		 */
 		override protected function encodeBlock():Boolean
 		{
+			//TO DO:
+			//encode mulitple pixels within this block.
+			//a bit wasteful to check the clock after every pixel.
 			var pixel:uint;
 			if (!sourceTransparent)
 			{
@@ -189,9 +192,9 @@ package com.leeburrows.encoders
 		override protected function encodeTail():void
 		{
 			IDAT.compress();
-			writeChunk(_encodedImage, 0x49444154, IDAT);
+			writeChunk(_encodedBytes, 0x49444154, IDAT);
 			// Build IEND chunk
-			writeChunk(_encodedImage, 0x49454E44, null);
+			writeChunk(_encodedBytes, 0x49454E44, null);
 		}
 		
 		private function writeChunk(destination:ByteArray, type:uint, bytes:ByteArray):void
