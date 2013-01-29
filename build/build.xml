@@ -21,8 +21,11 @@
 	<target name="compile swc" depends="prepare swc">
 		<echo>Compiling SWC To ${output.dir}</echo>
 		<compc	debug="${debug}"
-				incremental="${incremental}"
-				output="${output.dir}/${output.name}.swc">
+				target-player="${player.version}"
+				output="${output.dir}/${output.name}-v${output.version}.swc">
+			<compiler.external-library-path dir="${FLEX_HOME}/frameworks/libs/player/${player.version}">
+                <include name="playerglobal.swc" />
+            </compiler.external-library-path>
 			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
 			<source-path path-element="${src.dir}" />
 			<include-sources dir="${src.dir}" includes="*" />
