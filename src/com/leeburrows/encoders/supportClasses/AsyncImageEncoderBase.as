@@ -1,7 +1,7 @@
 /**
  * AsyncImageEncoderBase.as
  * Lee Burrows
- * version 1.0.0
+ * version 1.0.2
  * 
  * Copyright (c) 2013 Lee Burrows
  * 
@@ -40,9 +40,9 @@ package com.leeburrows.encoders.supportClasses
 	/**
 	 *  Dispatched when encoding is complete.
 	 *
-	 *  @eventType flash.events.Event
+	 *  @eventType com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent
 	 */
-	[Event(name="complete", type="flash.events.Event")]
+	[Event(name="complete", type="com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent")]
 	/** 
 	 * This is the base class for all Asynchronous Image Encoders.
 	 * 
@@ -128,7 +128,10 @@ package com.leeburrows.encoders.supportClasses
 		public function get encodedBytes():ByteArray
 		{
 			if (_isRunning) return null;
-			return _encodedBytes;
+			var result:ByteArray = new ByteArray();
+			_encodedBytes.position = 0;
+			_encodedBytes.readBytes(result, 0, _encodedBytes.bytesAvailable);
+			return result;
 		}
 		
 		/**
@@ -153,9 +156,16 @@ package com.leeburrows.encoders.supportClasses
 		
 		/**
 		 * @inheritDoc
+		 * 
+		 * @throws Error Async image encoder is already running.
+		 * @throws ArgumentError The source parameter is null.
 		 */
 		public function start(source:BitmapData, frameTime:int=20):void
 		{
+			if (_isRunning)
+				throw new Error("Async image encoder is already running.");
+			if (source==null)
+				throw new ArgumentError("The source parameter is null.");
 			sourceBitmapData = source.clone();
 			this.frameTime = Math.max(1, frameTime);
 			_isRunning = true;
@@ -182,14 +192,18 @@ package com.leeburrows.encoders.supportClasses
 		
 		private function enterFrameHandler(event:Event):void
 		{
+			var eventType:String;
 			if (encodeBody())
 			{
 				encodeTail();
 				cleanUp();
-				dispatchEvent(new Event(Event.COMPLETE, false, false));
+				eventType = AsyncImageEncoderEvent.COMPLETE;
 			}
 			else
-				dispatchEvent(new AsyncImageEncoderEvent(AsyncImageEncoderEvent.PROGRESS, completedPixels, totalPixels));
+			{
+				eventType = AsyncImageEncoderEvent.PROGRESS;
+			}
+			dispatchEvent(new AsyncImageEncoderEvent(eventType, completedPixels, totalPixels));
 		}
 		
 		private function encodeBody():Boolean
@@ -205,7 +219,6 @@ package com.leeburrows.encoders.supportClasses
 		
 		private function cleanUp():void
 		{
-			_encodedBytes.position = 0;
 			_isRunning = false;
 			removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		}

@@ -1,7 +1,7 @@
 /**
  * AsyncImageEncoderEvent.as
  * Lee Burrows
- * version 1.0.0
+ * version 1.0.2
  * 
  * Copyright (c) 2013 Lee Burrows
  * 
@@ -40,6 +40,11 @@ package com.leeburrows.encoders.supportClasses
 		 * Defines the value of the type property of a progress event object.
 		 */
 		public static const PROGRESS:String = "progress";
+
+		/**
+		 * Defines the value of the type property of a complete event object.
+		 */
+		public static const COMPLETE:String = "complete";
 		
 		private var _pixelsEncoded:int;
 		private var _pixelsTotal:int;
