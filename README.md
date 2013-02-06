@@ -25,7 +25,6 @@ A simple usage example:
 		import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
 		import flash.display.BitmapData;
 		import flash.display.Sprite;
-		import flash.events.Event;
 	
 		public class PNGEncoderExample extends Sprite
 		{
@@ -39,7 +38,7 @@ A simple usage example:
 				encoder = new AsyncPNGEncoder();
 				//add progress and complete listeners
 				encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
-				encoder.addEventListener(Event.COMPLETE, encodeCompleteHandler);
+				encoder.addEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
 				//start encoding for 20 milliseconds per frame
 				encoder.start(myBitmapData, 20);
 			}
@@ -50,10 +49,10 @@ A simple usage example:
 				trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
 			}
 	
-			private function encodeCompleteHandler(event:Event):void
+			private function encodeCompleteHandler(event:AsyncImageEncoderEvent):void
 			{
 				encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
-				encoder.removeEventListener(Event.COMPLETE, encodeCompleteHandler);
+				encoder.removeEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
 				//trace size of result
 				trace("encoding completed:", encoder.encodedBytes.length+" bytes");
 				//do something with the bytes...
