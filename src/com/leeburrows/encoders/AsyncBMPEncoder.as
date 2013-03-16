@@ -91,7 +91,7 @@ package com.leeburrows.encoders
 		/**
 		 * Called internally before encoding loop begins.
 		 * 
-		 * <p></p>
+		 * <p>Builds BMP header bytes.</p>
 		 */
 		override protected function encodeHead():void
 		{
@@ -118,7 +118,7 @@ package com.leeburrows.encoders
 		/**
 		 * Called internally during encoding loop.
 		 * 
-		 * <p></p>
+		 * <p>Encodes a row of pixels into BMP file format bytes.</p>
 		 */
 		override protected function encodeBlock():Boolean
 		{

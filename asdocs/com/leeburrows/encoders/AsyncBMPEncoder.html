@@ -40,11 +40,11 @@
 										--></script><div class="MainContent"><a name="constructorDetail"></a><div class="detailSectionHeader">Constructor Detail</div><a name="AsyncBMPEncoder()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">AsyncBMPEncoder</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">Constructor</td></tr></table><div class="detailBody"><code>public function AsyncBMPEncoder()</code><p></p><br/><br/></div><a name="methodDetail"></a><div class="detailSectionHeader">Method Detail</div><a name="encodeBlock()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">encodeBlock</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td></tr></table><div class="detailBody"><code>override protected function encodeBlock():Boolean</code><p></p><p></p><p>
 		 Called internally during encoding loop.
 		 
-		 <p></p>
+		 <p>Encodes a row of pixels into BMP file format bytes.</p>
 		 </p><p></p><span class="label">Returns</span><table cellpadding="0" cellspacing="0" border="0"><tr><td width="20"></td><td><code>Boolean</code></td></tr></table></div><a name="encodeHead()"></a><table class="detailHeader" cellpadding="0" cellspacing="0"><tr><td class="detailHeaderName">encodeHead</td><td class="detailHeaderParens">()</td><td class="detailHeaderType">method</td><td class="detailHeaderRule">&nbsp;</td></tr></table><div class="detailBody"><code>override protected function encodeHead():void</code><p></p><p></p><p>
 		 Called internally before encoding loop begins.
 		 
-		 <p></p>
+		 <p>Builds BMP header bytes.</p>
 		 </p></div><a name="includeExamplesSummary"></a><div class="detailSectionHeader">Examples</div><div class="detailBody">Simple example:
 	 <div class="listing" version="3.0"><pre>
      package
@@ -54,7 +54,6 @@
              import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
              import flash.display.BitmapData;
              import flash.display.Sprite;
-             import flash.events.Event;
      
              public class BMPEncoderExample extends Sprite
              {
@@ -68,7 +67,7 @@
                      encoder = new AsyncBMPEncoder();
                      //add progress and complete listeners
                      encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
-                     encoder.addEventListener(Event.COMPLETE, encodeCompleteHandler);
+                     encoder.addEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
                      //start encoding for 20 milliseconds per frame
                      encoder.start(myBitmapData, 20);
                  }
@@ -79,14 +78,14 @@
                      trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
                  }
      
-                 private function encodeCompleteHandler(event:Event):void
+                 private function encodeCompleteHandler(event:AsyncImageEncoderEvent):void
                  {
                      encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
-                     encoder.removeEventListener(Event.COMPLETE, encodeCompleteHandler);
+                     encoder.removeEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
                      //trace size of result
                      trace("encoding completed:", encoder.encodedBytes.length+" bytes");
                  }
              }
      }
      </pre></div>
-	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>v1.0.2 - (c) 2013 Lee Burrows.<br><a href="https://github.com/LeeBurrows/Async-Image-Encoders" target="_blank">https://github.com/LeeBurrows/Async-Image-Encoders</a></footer><br/>Wed Feb 6 2013, 06:30 PM Z  </center></div></body></html><!--v1.0.2 - (c) 2013 Lee Burrows.https://github.com/LeeBurrows/Async-Image-Encoders<br/>Wed Feb 6 2013, 06:30 PM Z  -->
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>v1.0.2 - (c) 2013 Lee Burrows.<br><a href="https://github.com/LeeBurrows/Async-Image-Encoders" target="_blank">https://github.com/LeeBurrows/Async-Image-Encoders</a></footer><br/>Sat Mar 16 2013, 07:25 PM Z  </center></div></body></html><!--v1.0.2 - (c) 2013 Lee Burrows.https://github.com/LeeBurrows/Async-Image-Encoders<br/>Sat Mar 16 2013, 07:25 PM Z  -->

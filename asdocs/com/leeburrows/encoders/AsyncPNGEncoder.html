@@ -66,7 +66,6 @@
              import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
              import flash.display.BitmapData;
              import flash.display.Sprite;
-             import flash.events.Event;
      
              public class PNGEncoderExample extends Sprite
              {
@@ -80,7 +79,7 @@
                      encoder = new AsyncPNGEncoder();
                      //add progress and complete listeners
                      encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
-                     encoder.addEventListener(Event.COMPLETE, encodeCompleteHandler);
+                     encoder.addEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
                      //start encoding for 20 milliseconds per frame
                      encoder.start(myBitmapData, 20);
                  }
@@ -91,14 +90,14 @@
                      trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
                  }
      
-                 private function encodeCompleteHandler(event:Event):void
+                 private function encodeCompleteHandler(event:AsyncImageEncoderEvent):void
                  {
                      encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
-                     encoder.removeEventListener(Event.COMPLETE, encodeCompleteHandler);
+                     encoder.removeEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
                      //trace size of result
                      trace("encoding completed:", encoder.encodedBytes.length+" bytes");
                  }
              }
      }
      </pre></div>
-	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>v1.0.2 - (c) 2013 Lee Burrows.<br><a href="https://github.com/LeeBurrows/Async-Image-Encoders" target="_blank">https://github.com/LeeBurrows/Async-Image-Encoders</a></footer><br/>Wed Feb 6 2013, 06:30 PM Z  </center></div></body></html><!--v1.0.2 - (c) 2013 Lee Burrows.https://github.com/LeeBurrows/Async-Image-Encoders<br/>Wed Feb 6 2013, 06:30 PM Z  -->
+	 </div><br/><br/><hr><br/><p></p><center class="copyright"><footer>v1.0.2 - (c) 2013 Lee Burrows.<br><a href="https://github.com/LeeBurrows/Async-Image-Encoders" target="_blank">https://github.com/LeeBurrows/Async-Image-Encoders</a></footer><br/>Sat Mar 16 2013, 07:25 PM Z  </center></div></body></html><!--v1.0.2 - (c) 2013 Lee Burrows.https://github.com/LeeBurrows/Async-Image-Encoders<br/>Sat Mar 16 2013, 07:25 PM Z  -->
