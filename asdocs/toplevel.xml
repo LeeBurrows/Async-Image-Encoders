@@ -1,0 +1,1346 @@
+<asdoc>
+
+<packageRec name='com.leeburrows.encoders.supportClasses.null' fullname='com.leeburrows.encoders.supportClasses.null'>
+<description><![CDATA[
+
+ AsyncImageEncoderEvent.as
+
+ Lee Burrows
+
+ version 1.0.2
+
+ 
+
+ Copyright (c) 2013 Lee Burrows
+
+ 
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+
+ of this software and associated documentation files (the "Software"), to deal
+
+ in the Software without restriction, including without limitation the rights
+
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+ copies of the Software, and to permit persons to whom the Software is
+
+ furnished to do so, subject to the following conditions:
+
+ 
+
+ The above copyright notice and this permission notice shall be included in
+
+ all copies or substantial portions of the Software.
+
+ 
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+ THE SOFTWARE.
+
+ ]]></description>
+</packageRec>
+<classRec name='AsyncImageEncoderEvent' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent' sourcefile='E:\Projects\Public Projects\Asynchronous Image Encoders\src\com\leeburrows\encoders\supportClasses\AsyncImageEncoderEvent.as' namespace='com.leeburrows.encoders.supportClasses' access='public' baseclass='flash.events:Event' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+
+	 Dispatched to notify progress of asynchronous encoder processing.
+
+	 
+
+   	 ]]></description>
+<langversion><![CDATA[3.0
+
+	 ]]></langversion>
+<playerversion><![CDATA[Flash 9
+
+	 ]]></playerversion>
+<playerversion><![CDATA[AIR 1.5
+
+	 ]]></playerversion>
+</classRec>
+<method name='AsyncImageEncoderEvent' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/AsyncImageEncoderEvent' isStatic='false' isFinal='false' isOverride='false'  param_names='type;pixelsEncoded;pixelsTotal' param_types='String;int;int' param_defaults='undefined;0;0' result_type='*'>
+<description><![CDATA[
+
+		 Create a new <code>AsyncImageEncoderEvent</code> object.
+
+		 
+
+		 ]]></description>
+<param><![CDATA[type The event type.
+
+		 ]]></param>
+<param><![CDATA[pixelsEncoded Number of pixels processed by asynchronous encoder.
+
+		 ]]></param>
+<param><![CDATA[pixelsTotal Total number of pixels to be processed by asynchronous encoder.
+
+		 ]]></param>
+</method>
+<method name='clone' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/clone' isStatic='false' isFinal='false' isOverride='true'  result_type='flash.events:Event'>
+<description><![CDATA[
+
+		 Clones the current event.
+
+		 
+
+		 ]]></description>
+<return><![CDATA[An exact duplicate of the current event.
+
+		 ]]></return>
+</method>
+<method name='percentComplete' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/percentComplete/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Number'>
+<description><![CDATA[
+
+		 Percentage of processing that has been completed. Between 0 and 100.
+
+		 ]]></description>
+</method>
+<method name='pixelsEncoded' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/pixelsEncoded/get' isStatic='false' isFinal='false' isOverride='false'  result_type='int'>
+<description><![CDATA[
+
+		 Number of pixels processed by asynchronous encoder.
+
+		 ]]></description>
+</method>
+<method name='pixelsTotal' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/pixelsTotal/get' isStatic='false' isFinal='false' isOverride='false'  result_type='int'>
+<description><![CDATA[
+
+		 Total number of pixels to be processed by asynchronous encoder.
+
+		 ]]></description>
+</method>
+<method name='ratioComplete' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/ratioComplete/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Number'>
+<description><![CDATA[
+
+		 Ratio of processing that has been completed. Between 0 and 1.
+
+		 ]]></description>
+</method>
+<field name='COMPLETE' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/COMPLETE' type='String' isStatic='true' isConst='true' defaultValue='complete' >
+<description><![CDATA[
+
+		 Defines the value of the type property of a complete event object.
+
+		 ]]></description>
+</field>
+<field name='PROGRESS' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/PROGRESS' type='String' isStatic='true' isConst='true' defaultValue='progress' >
+<description><![CDATA[
+
+		 Defines the value of the type property of a progress event object.
+
+		 ]]></description>
+</field>
+<field name='_pixelsEncoded' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/private:_pixelsEncoded' type='int' isStatic='false' isConst='false' >
+</field>
+<field name='_pixelsTotal' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderEvent/private:_pixelsTotal' type='int' isStatic='false' isConst='false' >
+</field>
+<packageRec name='com.leeburrows.encoders.supportClasses.null' fullname='com.leeburrows.encoders.supportClasses.null'>
+<description><![CDATA[
+
+ IAsyncImageEncoder.as
+
+ Lee Burrows
+
+ version 1.0.2
+
+ 
+
+ Copyright (c) 2013 Lee Burrows
+
+ 
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+
+ of this software and associated documentation files (the "Software"), to deal
+
+ in the Software without restriction, including without limitation the rights
+
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+ copies of the Software, and to permit persons to whom the Software is
+
+ furnished to do so, subject to the following conditions:
+
+ 
+
+ The above copyright notice and this permission notice shall be included in
+
+ all copies or substantial portions of the Software.
+
+ 
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+ THE SOFTWARE.
+
+ ]]></description>
+</packageRec>
+<interfaceRec name='IAsyncImageEncoder' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder' sourcefile='E:\Projects\Public Projects\Asynchronous Image Encoders\src\com\leeburrows\encoders\supportClasses\IAsyncImageEncoder.as' namespace='com.leeburrows.encoders.supportClasses' access='public' baseClasses='flash.events:IEventDispatcher' isFinal='false' isDynamic='false' >
+<description><![CDATA[ 
+
+	 The public interface for asynchronous image encoders.
+
+ 	 ]]></description>
+<langversion><![CDATA[3.0
+
+	 ]]></langversion>
+<playerversion><![CDATA[Flash 9
+
+	 ]]></playerversion>
+<playerversion><![CDATA[AIR 1.5
+
+	 ]]></playerversion>
+</interfaceRec>
+<method name='start' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder/com.leeburrows.encoders.supportClasses:IAsyncImageEncoder:start' isStatic='false' isFinal='false' isOverride='false'  param_names='source;frameTime' param_types='flash.display:BitmapData;int' param_defaults='undefined;20' result_type='void'>
+<description><![CDATA[
+
+		 Starts encoding.
+
+		 
+
+		 ]]></description>
+<param><![CDATA[source The BitmapData object to encode. Encoder clones BitmapData, so original does not need to be retained while encoding occurs.
+
+		 ]]></param>
+<param><![CDATA[frameTime Number of milliseconds to spend processing on each frame. 
+
+		 ]]></param>
+</method>
+<method name='stop' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder/com.leeburrows.encoders.supportClasses:IAsyncImageEncoder:stop' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Halts the encoding.
+
+		 ]]></description>
+</method>
+<method name='encodedBytes' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder/com.leeburrows.encoders.supportClasses:IAsyncImageEncoder:encodedBytes/get' isStatic='false' isFinal='false' isOverride='false'  result_type='flash.utils:ByteArray'>
+<description><![CDATA[
+
+		 If encoder has finished, returns the encoded bytes.
+
+		 
+
+		 <p>If encoder has been stopped, returns any bytes that have been encoded.</p>
+
+		 <p>If encoder is currently running or has never been run, returns <code>null</code>.</p>
+
+		 ]]></description>
+</method>
+<method name='isRunning' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder/com.leeburrows.encoders.supportClasses:IAsyncImageEncoder:isRunning/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+
+		 If <code>true</code>, the encoder is active. If <code>false</code>, the encoder has finished or has been stopped.
+
+		 ]]></description>
+</method>
+<packageRec name='com.leeburrows.encoders.supportClasses.null' fullname='com.leeburrows.encoders.supportClasses.null'>
+<description><![CDATA[
+
+ AsyncImageEncoderBase.as
+
+ Lee Burrows
+
+ version 1.0.2
+
+ 
+
+ Copyright (c) 2013 Lee Burrows
+
+ 
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+
+ of this software and associated documentation files (the "Software"), to deal
+
+ in the Software without restriction, including without limitation the rights
+
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+ copies of the Software, and to permit persons to whom the Software is
+
+ furnished to do so, subject to the following conditions:
+
+ 
+
+ The above copyright notice and this permission notice shall be included in
+
+ all copies or substantial portions of the Software.
+
+ 
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+ THE SOFTWARE.
+
+ ]]></description>
+</packageRec>
+<classRec name='AsyncImageEncoderBase' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase' sourcefile='E:\Projects\Public Projects\Asynchronous Image Encoders\src\com\leeburrows\encoders\supportClasses\AsyncImageEncoderBase.as' namespace='com.leeburrows.encoders.supportClasses' access='public' baseclass='flash.display:Sprite' interfaces='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder' isFinal='false' isDynamic='false' >
+<description><![CDATA[ 
+
+	 This is the base class for all Asynchronous Image Encoders.
+
+	 
+
+	 <p>Encodes BitmapData objects over multiple frames to avoid freezing the UI. Ideally suited for mobile AIR where ActionScript Workers are unavailable.</p>
+
+	 
+
+	 <p>To implement your own encoder, create a subclass and override some or all of the core methods:</p>
+
+	 <ul>
+
+	 <li>initialise()</li>
+
+	 <li>encodeHead()</li>
+
+	 <li>encodeBlock()</li>
+
+	 <li>encodeTail()</li>
+
+	 </ul>
+
+	 <p>When a new instance is created <code>initialise()</code> is called once.</p>
+
+	 <p>When start is called:</p>
+
+	 <ol>
+
+	 <li>encodeHead() is called once.</li>
+
+	 <li>encodeBlock() is called repeatedly until it returns <code>true</code>.</li>
+
+	 <li>encoderTail() is called once.</li>
+
+	 </ol>
+
+	 
+
+	 <p>In order to listen for Event.ENTER_FRAME, and dispatch progress and complete events, AsyncImageEncoderBase is a subclass of <code>flash.display.Sprite</code>. However, it does not need to be added to the display list to function.</p>
+
+	 
+
+	 ]]></description>
+<langversion><![CDATA[3.0
+
+	 ]]></langversion>
+<playerversion><![CDATA[Flash 9
+
+	 ]]></playerversion>
+<playerversion><![CDATA[AIR 1.5
+
+	 ]]></playerversion>
+<metadata>
+	<Event owner='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase' name='complete' type='com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent' >
+<description><![CDATA[
+
+	  Dispatched when encoding is complete.
+
+	 
+	  ]]></description>
+<eventType><![CDATA[com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent
+
+	 ]]></eventType>
+	</Event>
+</metadata>
+<metadata>
+	<Event owner='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase' name='progress' type='com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent' >
+<description><![CDATA[
+
+	 Dispatched on each frame while encoder is running.
+
+	 
+	 ]]></description>
+<eventType><![CDATA[com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent
+
+	 ]]></eventType>
+	</Event>
+</metadata>
+</classRec>
+<method name='AsyncImageEncoderBase' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/AsyncImageEncoderBase' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+<description><![CDATA[
+
+		 Creates a new <code>AsyncImageEncoderBase</code>.
+
+		 
+
+		 <p>Do not use this class directly. Instead, create a subclass and override core methods.</p>
+
+		 ]]></description>
+</method>
+<method name='cleanUp' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/private:cleanUp' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='encodeBlock' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:encodeBlock' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+
+		 Called internally during multi-frame loop.
+
+		 
+
+		 <p>Override to implement repeated actions. This method will be called repeatedly on every frame until the frame time is exceeded or <code>true</code> is returned.</p>
+
+		 <p>The bulk of encoder processing should be contained within this method.</p>
+
+		 <ul>
+
+		 <li>Use <code>currentX</code> and <code>currentY</code> to keep track of current position in source BitmapData.</li>
+
+		 <li>Update <code>completedPixels</code> here to ensure that progress events dispatch accurate values.</li>
+
+		 </ul>
+
+		 
+
+		 ]]></description>
+<return><![CDATA[True if loop processing has completed.
+
+		 ]]></return>
+</method>
+<method name='encodeBody' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/private:encodeBody' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+</method>
+<method name='encodeHead' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:encodeHead' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally before multi-frame loop begins.
+
+		 
+
+		 <p>Override to implement actions that need to be run once per image, before the asynchronous looping begins.</p>
+
+		 ]]></description>
+</method>
+<method name='encodeTail' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:encodeTail' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally after multi-frame loop ends.
+
+		 
+
+		 <p>Override to implement actions that need to be run once per image, after asynchronous looping has completed.</p>
+
+		 ]]></description>
+</method>
+<method name='enterFrameHandler' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/private:enterFrameHandler' isStatic='false' isFinal='false' isOverride='false'  param_names='event' param_types='flash.events:Event' param_defaults='undefined' result_type='void'>
+</method>
+<method name='initialise' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:initialise' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally when instance is instantiated.
+
+		 
+
+		 <p>Override to implement actions that only needs to be run once during initialisation.</p>
+
+		 ]]></description>
+</method>
+<method name='start' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/start' isStatic='false' isFinal='false' isOverride='false'  param_names='source;frameTime' param_types='flash.display:BitmapData;int' param_defaults='undefined;20' result_type='void'>
+<description><![CDATA[
+
+		 
+
+		 Starts encoding.
+
+		 
+
+		 ]]></description>
+<param><![CDATA[source The BitmapData object to encode. Encoder clones BitmapData, so original does not need to be retained while encoding occurs.
+
+		 ]]></param>
+<param><![CDATA[frameTime Number of milliseconds to spend processing on each frame. 
+
+		 ]]></param>
+<throws><![CDATA[Error Async image encoder is already running.
+
+		 ]]></throws>
+<throws><![CDATA[ArgumentError The source parameter is null.
+
+		 ]]></throws>
+</method>
+<method name='stop' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/stop' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 
+
+		 Halts the encoding.
+
+		 ]]></description>
+</method>
+<method name='encodedBytes' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/encodedBytes/get' isStatic='false' isFinal='false' isOverride='false'  result_type='flash.utils:ByteArray'>
+<description><![CDATA[
+
+		 
+
+		 If encoder has finished, returns the encoded bytes.
+
+		 
+
+		 <p>If encoder has been stopped, returns any bytes that have been encoded.</p>
+
+		 <p>If encoder is currently running or has never been run, returns <code>null</code>.</p>
+
+		 ]]></description>
+</method>
+<method name='isRunning' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/isRunning/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+
+		 
+
+		 If <code>true</code>, the encoder is active. If <code>false</code>, the encoder has finished or has been stopped.
+
+		 ]]></description>
+</method>
+<field name='_encodedBytes' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:_encodedBytes' type='flash.utils:ByteArray' isStatic='false' isConst='false' defaultValue='null' >
+<description><![CDATA[
+
+		 Internal storage for encoded bytes.
+
+		 ]]></description>
+</field>
+<field name='_isRunning' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:_isRunning' type='Boolean' isStatic='false' isConst='false' defaultValue='false' >
+<description><![CDATA[
+
+		 Internal storage for encoder status.
+
+		 ]]></description>
+</field>
+<field name='completedPixels' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:completedPixels' type='uint' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Number of pixels encoded.
+
+		 ]]></description>
+</field>
+<field name='currentX' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:currentX' type='uint' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Horizontal position of pixel currently being encoded.
+
+		 ]]></description>
+</field>
+<field name='currentY' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:currentY' type='uint' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Vertical position of pixel currently being encoded.
+
+		 ]]></description>
+</field>
+<field name='frameTime' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/private:frameTime' type='int' isStatic='false' isConst='false' >
+</field>
+<field name='sourceBitmapData' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:sourceBitmapData' type='flash.display:BitmapData' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 BitmapData to be encoded.
+
+		 ]]></description>
+</field>
+<field name='sourceHeight' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:sourceHeight' type='uint' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Vertical size of BitmapData to be encoded.
+
+		 ]]></description>
+</field>
+<field name='sourceTransparent' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:sourceTransparent' type='Boolean' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Whether BitmapData supports transparency.
+
+		 ]]></description>
+</field>
+<field name='sourceWidth' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:sourceWidth' type='uint' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Horizontal size of BitmapData to be encoded.
+
+		 ]]></description>
+</field>
+<field name='totalPixels' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:totalPixels' type='uint' isStatic='false' isConst='false' >
+<description><![CDATA[
+
+		 Total number of pixels to encode.
+
+		 ]]></description>
+</field>
+<packageRec name='com.leeburrows.encoders.null' fullname='com.leeburrows.encoders.null'>
+<description><![CDATA[
+
+ AsyncBMPEncoder.as
+
+ Lee Burrows
+
+ version 1.0.2
+
+ 
+
+ Copyright (c) 2013 Lee Burrows
+
+ 
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+
+ of this software and associated documentation files (the "Software"), to deal
+
+ in the Software without restriction, including without limitation the rights
+
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+ copies of the Software, and to permit persons to whom the Software is
+
+ furnished to do so, subject to the following conditions:
+
+ 
+
+ The above copyright notice and this permission notice shall be included in
+
+ all copies or substantial portions of the Software.
+
+ 
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+ THE SOFTWARE.
+
+ 
+ ]]></description>
+</packageRec>
+<classRec name='AsyncBMPEncoder' fullname='com.leeburrows.encoders:AsyncBMPEncoder' sourcefile='E:\Projects\Public Projects\Asynchronous Image Encoders\src\com\leeburrows\encoders\AsyncBMPEncoder.as' namespace='com.leeburrows.encoders' access='public' baseclass='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase' isFinal='false' isDynamic='false' >
+<description><![CDATA[ 
+
+	 Asynchronously encodes BitmapData objects into JPEG file format.
+
+	 
+
+	 ]]></description>
+<example><![CDATA[Simple example:
+
+	 <listing version="3.0">
+
+	 package
+
+	 {
+
+	 		import com.leeburrows.encoders.AsyncBMPEncoder;
+
+	 		import com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent;
+
+	 		import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
+
+	 		import flash.display.BitmapData;
+
+	 		import flash.display.Sprite;
+
+	 
+
+	 		public class BMPEncoderExample extends Sprite
+
+	 		{
+
+	 			private var encoder:IAsyncImageEncoder;
+
+	 
+
+	 			public function BMPEncoderExample()
+
+	 			{
+
+	 			//generate a BitmapData object to encode
+
+	 				var myBitmapData:BitmapData = new BitmapData(1000, 1000, true, 0x80FF9900);
+
+	 				//create a new BMP encoder
+
+	 				encoder = new AsyncBMPEncoder();
+
+	 				//add progress and complete listeners
+
+	 				encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
+
+	 				encoder.addEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
+
+	 				//start encoding for 20 milliseconds per frame
+
+	 				encoder.start(myBitmapData, 20);
+
+	 			}
+
+	 
+
+	 			private function encodeProgressHandler(event:AsyncImageEncoderEvent):void
+
+	 			{
+
+	 				//trace progress
+
+	 				trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
+
+	 			}
+
+	 
+
+	 			private function encodeCompleteHandler(event:AsyncImageEncoderEvent):void
+
+	 			{
+
+	 				encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
+
+	 				encoder.removeEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
+
+	 				//trace size of result
+
+	 				trace("encoding completed:", encoder.encodedBytes.length+" bytes");
+
+	 			}
+
+	 		}
+
+	 }
+
+	 </listing>
+
+	 ]]></example>
+<langversion><![CDATA[3.0
+
+	 ]]></langversion>
+<playerversion><![CDATA[Flash 9
+
+	 ]]></playerversion>
+<playerversion><![CDATA[AIR 1.5
+
+	 
+
+	 ]]></playerversion>
+</classRec>
+<method name='AsyncBMPEncoder' fullname='com.leeburrows.encoders:AsyncBMPEncoder/AsyncBMPEncoder' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='encodeBlock' fullname='com.leeburrows.encoders:AsyncBMPEncoder/protected:encodeBlock' isStatic='false' isFinal='false' isOverride='true'  result_type='Boolean'>
+<description><![CDATA[
+
+		 Called internally during encoding loop.
+
+		 
+
+		 <p>Encodes a row of pixels into BMP file format bytes.</p>
+
+		 ]]></description>
+</method>
+<method name='encodeHead' fullname='com.leeburrows.encoders:AsyncBMPEncoder/protected:encodeHead' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally before encoding loop begins.
+
+		 
+
+		 <p>Builds BMP header bytes.</p>
+
+		 ]]></description>
+</method>
+<packageRec name='com.leeburrows.encoders.null' fullname='com.leeburrows.encoders.null'>
+<description><![CDATA[
+
+ AsyncJPGEncoder.as
+
+ Lee Burrows
+
+ version 1.0.2
+
+ 
+
+ Copyright (c) 2013 Lee Burrows
+
+ 
+
+ --------------------------------------------------------------------------------
+
+ JPEG encoding algorithms adapted from as3corelib JPGEncoder by Mike Chambers.
+
+ https://github.com/mikechambers/as3corelib
+
+ --------------------------------------------------------------------------------
+
+ 
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+
+ of this software and associated documentation files (the "Software"), to deal
+
+ in the Software without restriction, including without limitation the rights
+
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+ copies of the Software, and to permit persons to whom the Software is
+
+ furnished to do so, subject to the following conditions:
+
+ 
+
+ The above copyright notice and this permission notice shall be included in
+
+ all copies or substantial portions of the Software.
+
+ 
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+ THE SOFTWARE.
+
+ 
+ ]]></description>
+</packageRec>
+<classRec name='AsyncJPGEncoder' fullname='com.leeburrows.encoders:AsyncJPGEncoder' sourcefile='E:\Projects\Public Projects\Asynchronous Image Encoders\src\com\leeburrows\encoders\AsyncJPGEncoder.as' namespace='com.leeburrows.encoders' access='public' baseclass='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase' isFinal='false' isDynamic='false' >
+<description><![CDATA[ 
+
+	 Asynchronously encodes BitmapData objects into JPEG file format.
+
+	 
+
+  	 ]]></description>
+<example><![CDATA[Simple example:
+
+	 <listing version="3.0">
+
+	 package
+
+	 {
+
+	 		import com.leeburrows.encoders.AsyncJPGEncoder;
+
+	 		import com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent;
+
+	 		import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
+
+	 		import flash.display.BitmapData;
+
+	 		import flash.display.Sprite;
+
+	 
+
+	 		public class JPGEncoderExample extends Sprite
+
+	 		{
+
+	 			private var encoder:IAsyncImageEncoder;
+
+	 
+
+	 			public function JPGEncoderExample()
+
+	 			{
+
+	 			//generate a BitmapData object to encode
+
+	 				var myBitmapData:BitmapData = new BitmapData(1000, 1000, true, 0x80FF9900);
+
+	 				//create a new JPG encoder with 75% quality
+
+	 				encoder = new AsyncJPGEncoder(75);
+
+	 				//add progress and complete listeners
+
+	 				encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
+
+	 				encoder.addEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
+
+	 				//start encoding for 20 milliseconds per frame
+
+	 				encoder.start(myBitmapData, 20);
+
+	 			}
+
+	 
+
+	 			private function encodeProgressHandler(event:AsyncImageEncoderEvent):void
+
+	 			{
+
+	 				//trace progress
+
+	 				trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
+
+	 			}
+
+	 
+
+	 			private function encodeCompleteHandler(event:AsyncImageEncoderEvent):void
+
+	 			{
+
+	 				encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
+
+	 				encoder.removeEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
+
+	 				//trace size of result
+
+	 				trace("encoding completed:", encoder.encodedBytes.length+" bytes");
+
+	 			}
+
+	 		}
+
+	 }
+
+	 </listing>
+
+	 ]]></example>
+<langversion><![CDATA[3.0
+
+	 ]]></langversion>
+<playerversion><![CDATA[Flash 9
+
+	 ]]></playerversion>
+<playerversion><![CDATA[AIR 1.5
+
+	 
+
+	 ]]></playerversion>
+</classRec>
+<method name='AsyncJPGEncoder' fullname='com.leeburrows.encoders:AsyncJPGEncoder/AsyncJPGEncoder' isStatic='false' isFinal='false' isOverride='false'  param_names='quality' param_types='Number' param_defaults='80.0' result_type='*'>
+<description><![CDATA[
+
+		 Create a new <code>AsyncJPGEncoder</code>
+
+		 
+
+		 ]]></description>
+<param><![CDATA[quality Quality of JPEG image. Values less than 1 or greater than 100 are clipped.
+
+		 ]]></param>
+</method>
+<method name='RGB2YUV' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:RGB2YUV' isStatic='false' isFinal='false' isOverride='false'  param_names='bitmapData;xpos;ypos;width;height' param_types='flash.display:BitmapData;int;int;int;int' param_defaults='undefined;undefined;undefined;undefined;undefined' result_type='void'>
+</method>
+<method name='computeHuffmanTbl' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:computeHuffmanTbl' isStatic='false' isFinal='false' isOverride='false'  param_names='nrcodes;std_table' param_types='Array;Array' param_defaults='undefined;undefined' result_type='Array'>
+</method>
+<method name='encodeBlock' fullname='com.leeburrows.encoders:AsyncJPGEncoder/protected:encodeBlock' isStatic='false' isFinal='false' isOverride='true'  result_type='Boolean'>
+<description><![CDATA[
+
+		 Called internally during encoding loop.
+
+		 
+
+		 <p>Encodes an 8x8 block of pixels into JPEG file format bytes.</p>
+
+		 ]]></description>
+</method>
+<method name='encodeHead' fullname='com.leeburrows.encoders:AsyncJPGEncoder/protected:encodeHead' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally before encoding loop begins.
+
+		 
+
+		 <p>Builds JPEG header bytes.</p>
+
+		 ]]></description>
+</method>
+<method name='encodeTail' fullname='com.leeburrows.encoders:AsyncJPGEncoder/protected:encodeTail' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally after encoding loop ends.
+
+		 
+
+		 <p>Builds EOI marker.</p>
+
+		 ]]></description>
+</method>
+<method name='fDCTQuant' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:fDCTQuant' isStatic='false' isFinal='false' isOverride='false'  param_names='data;fdtbl' param_types='Array;Array' param_defaults='undefined;undefined' result_type='Array'>
+</method>
+<method name='initCategoryNumber' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:initCategoryNumber' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='initHuffmanTbl' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:initHuffmanTbl' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='initQuantTables' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:initQuantTables' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='initialise' fullname='com.leeburrows.encoders:AsyncJPGEncoder/protected:initialise' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally when instance is instantiated.
+
+		 
+
+		 <p>Validates quality value and populates tables.</p>
+
+		 ]]></description>
+</method>
+<method name='processDU' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:processDU' isStatic='false' isFinal='false' isOverride='false'  param_names='CDU;fdtbl;DC;HTDC;HTAC' param_types='Array;Array;Number;Array;Array' param_defaults='undefined;undefined;undefined;undefined;undefined' result_type='Number'>
+</method>
+<method name='stop' fullname='com.leeburrows.encoders:AsyncJPGEncoder/stop' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 
+
+		 
+
+		 Halts the encoding.
+
+		 ]]></description>
+</method>
+<method name='validateQuality' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:validateQuality' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='writeAPP0' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeAPP0' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='writeBits' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeBits' isStatic='false' isFinal='false' isOverride='false'  param_names='bs' param_types='AsyncJPGEncoder.as$46:BitString' param_defaults='undefined' result_type='void'>
+</method>
+<method name='writeByte' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeByte' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='int' param_defaults='undefined' result_type='void'>
+</method>
+<method name='writeDHT' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeDHT' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='writeDQT' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeDQT' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='writeSOF0' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeSOF0' isStatic='false' isFinal='false' isOverride='false'  param_names='width;height' param_types='int;int' param_defaults='undefined;undefined' result_type='void'>
+</method>
+<method name='writeSOS' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeSOS' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='writeWord' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:writeWord' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='int' param_defaults='undefined' result_type='void'>
+</method>
+<method name='quality' fullname='com.leeburrows.encoders:AsyncJPGEncoder/quality/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Number'>
+<description><![CDATA[
+
+		 Quality of JPEG image. Values less than 1 or greater than 100 are clipped.
+
+		 
+
+		 <p>Higher values cause less compression and so result in larger file sizes.</p>
+
+		 <p>Changing value does not affect any .</p>
+
+		 ]]></description>
+</method>
+<method name='quality' fullname='com.leeburrows.encoders:AsyncJPGEncoder/quality/set' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Number' param_defaults='undefined' result_type='void'>
+</method>
+<field name='DCU' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:DCU' type='Number' isStatic='false' isConst='false' defaultValue='0' >
+</field>
+<field name='DCV' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:DCV' type='Number' isStatic='false' isConst='false' defaultValue='0' >
+</field>
+<field name='DCY' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:DCY' type='Number' isStatic='false' isConst='false' defaultValue='0' >
+</field>
+<field name='DU' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:DU' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='UDU' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:UDU' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='UVAC_HT' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:UVAC_HT' type='Array' isStatic='false' isConst='false' >
+</field>
+<field name='UVDC_HT' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:UVDC_HT' type='Array' isStatic='false' isConst='false' >
+</field>
+<field name='UVTable' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:UVTable' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='VDU' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:VDU' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='YAC_HT' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:YAC_HT' type='Array' isStatic='false' isConst='false' >
+</field>
+<field name='YDC_HT' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:YDC_HT' type='Array' isStatic='false' isConst='false' >
+</field>
+<field name='YDU' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:YDU' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='YTable' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:YTable' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='ZigZag' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:ZigZag' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='_qualityChanged' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:_qualityChanged' type='Boolean' isStatic='false' isConst='false' defaultValue='false' >
+</field>
+<field name='_quality' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:_quality' type='Number' isStatic='false' isConst='false' defaultValue='80' >
+</field>
+<field name='bitcode' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:bitcode' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='bytenew' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:bytenew' type='int' isStatic='false' isConst='false' defaultValue='0' >
+</field>
+<field name='bytepos' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:bytepos' type='int' isStatic='false' isConst='false' defaultValue='7' >
+</field>
+<field name='category' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:category' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='fdtbl_UV' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:fdtbl_UV' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='fdtbl_Y' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:fdtbl_Y' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+<field name='std_ac_chrominance_nrcodes' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_ac_chrominance_nrcodes' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_ac_chrominance_values' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_ac_chrominance_values' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_ac_luminance_nrcodes' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_ac_luminance_nrcodes' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_ac_luminance_values' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_ac_luminance_values' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_dc_chrominance_nrcodes' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_dc_chrominance_nrcodes' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_dc_chrominance_values' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_dc_chrominance_values' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_dc_luminance_nrcodes' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_dc_luminance_nrcodes' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<field name='std_dc_luminance_values' fullname='com.leeburrows.encoders:AsyncJPGEncoder/private:std_dc_luminance_values' type='Array' isStatic='false' isConst='true' defaultValue='unknown' >
+</field>
+<packageRec name='com.leeburrows.encoders.null' fullname='com.leeburrows.encoders.null'>
+<description><![CDATA[
+
+ AsyncPNGEncoder.as
+
+ Lee Burrows
+
+ version 1.0.2
+
+ 
+
+ Copyright (c) 2013 Lee Burrows
+
+ 
+
+ --------------------------------------------------------------------------------
+
+ PNG encoding algorithms adapted from as3corelib PNGEncoder by Mike Chambers.
+
+ https://github.com/mikechambers/as3corelib
+
+ --------------------------------------------------------------------------------
+
+ 
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+
+ of this software and associated documentation files (the "Software"), to deal
+
+ in the Software without restriction, including without limitation the rights
+
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+ copies of the Software, and to permit persons to whom the Software is
+
+ furnished to do so, subject to the following conditions:
+
+ 
+
+ The above copyright notice and this permission notice shall be included in
+
+ all copies or substantial portions of the Software.
+
+ 
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+
+ THE SOFTWARE.
+
+ 
+ ]]></description>
+</packageRec>
+<classRec name='AsyncPNGEncoder' fullname='com.leeburrows.encoders:AsyncPNGEncoder' sourcefile='E:\Projects\Public Projects\Asynchronous Image Encoders\src\com\leeburrows\encoders\AsyncPNGEncoder.as' namespace='com.leeburrows.encoders' access='public' baseclass='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase' isFinal='false' isDynamic='false' >
+<description><![CDATA[ 
+
+	 Asynchronously encodes BitmapData objects into PNG file format.
+
+	 
+
+  	 ]]></description>
+<example><![CDATA[Simple example:
+
+	 <listing version="3.0">
+
+	 package
+
+	 {
+
+	 		import com.leeburrows.encoders.AsyncPNGEncoder;
+
+	 		import com.leeburrows.encoders.supportClasses.AsyncImageEncoderEvent;
+
+	 		import com.leeburrows.encoders.supportClasses.IAsyncImageEncoder;
+
+	 		import flash.display.BitmapData;
+
+	 		import flash.display.Sprite;
+
+	 
+
+	 		public class PNGEncoderExample extends Sprite
+
+	 		{
+
+	 			private var encoder:IAsyncImageEncoder;
+
+	 
+
+	 			public function PNGEncoderExample()
+
+	 			{
+
+	 				//generate a BitmapData object to encode
+
+	 				var myBitmapData:BitmapData = new BitmapData(1000, 1000, true, 0x80FF9900);
+
+	 				//create a new PNG encoder
+
+	 				encoder = new AsyncPNGEncoder();
+
+	 				//add progress and complete listeners
+
+	 				encoder.addEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
+
+	 				encoder.addEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
+
+	 				//start encoding for 20 milliseconds per frame
+
+	 				encoder.start(myBitmapData, 20);
+
+	 			}
+
+	 
+
+	 			private function encodeProgressHandler(event:AsyncImageEncoderEvent):void
+
+	 			{
+
+	 				//trace progress
+
+	 				trace("encoding progress:", Math.floor(event.percentComplete)+"% complete");
+
+	 			}
+
+	 
+
+	 			private function encodeCompleteHandler(event:AsyncImageEncoderEvent):void
+
+	 			{
+
+	 				encoder.removeEventListener(AsyncImageEncoderEvent.PROGRESS, encodeProgressHandler);
+
+	 				encoder.removeEventListener(AsyncImageEncoderEvent.COMPLETE, encodeCompleteHandler);
+
+	 				//trace size of result
+
+	 				trace("encoding completed:", encoder.encodedBytes.length+" bytes");
+
+	 			}
+
+	 		}
+
+	 }
+
+	 </listing>
+
+	 ]]></example>
+<langversion><![CDATA[3.0
+
+	 ]]></langversion>
+<playerversion><![CDATA[Flash 9
+
+	 ]]></playerversion>
+<playerversion><![CDATA[AIR 1.5
+
+	 
+
+	 ]]></playerversion>
+</classRec>
+<method name='AsyncPNGEncoder' fullname='com.leeburrows.encoders:AsyncPNGEncoder/AsyncPNGEncoder' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+<description><![CDATA[
+
+		 Create a new <code>AsyncPNGEncoder</code>
+
+		 ]]></description>
+</method>
+<method name='encodeBlock' fullname='com.leeburrows.encoders:AsyncPNGEncoder/protected:encodeBlock' isStatic='false' isFinal='false' isOverride='true'  result_type='Boolean'>
+<description><![CDATA[
+
+		 Called internally during encoding loop.
+
+		 
+
+		 <p>Encodes a single pixel into PNG file format bytes.</p>
+
+		 ]]></description>
+</method>
+<method name='encodeHead' fullname='com.leeburrows.encoders:AsyncPNGEncoder/protected:encodeHead' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally before encoding loop begins.
+
+		 
+
+		 <p>Builds PNG header bytes.</p>
+
+		 ]]></description>
+</method>
+<method name='encodeTail' fullname='com.leeburrows.encoders:AsyncPNGEncoder/protected:encodeTail' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally after encoding loop ends.
+
+		 
+
+		 <p>Compresses encoded bytes and builds file end.</p>
+
+		 ]]></description>
+</method>
+<method name='initialise' fullname='com.leeburrows.encoders:AsyncPNGEncoder/protected:initialise' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+<description><![CDATA[
+
+		 Called internally when instance is instantiated.
+
+		 
+
+		 <p>Populates CRC table.</p>
+
+		 ]]></description>
+</method>
+<method name='writeChunk' fullname='com.leeburrows.encoders:AsyncPNGEncoder/private:writeChunk' isStatic='false' isFinal='false' isOverride='false'  param_names='destination;type;bytes' param_types='flash.utils:ByteArray;uint;flash.utils:ByteArray' param_defaults='undefined;undefined;undefined' result_type='void'>
+</method>
+<field name='IDAT' fullname='com.leeburrows.encoders:AsyncPNGEncoder/private:IDAT' type='flash.utils:ByteArray' isStatic='false' isConst='false' >
+</field>
+<field name='crcTable' fullname='com.leeburrows.encoders:AsyncPNGEncoder/private:crcTable' type='Array' isStatic='false' isConst='false' >
+</field>
+</asdoc>

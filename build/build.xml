@@ -6,7 +6,7 @@
 	<property file="${basedir}/build/build.properties" />
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
 
-	<target name="full build" depends="compile swc,build ASDocs" description="compiles SWC and ASDocs" />
+	<target name="full build" depends="compile swc,insert ASDocs" description="compiles a release SWC" />
 
 	<!-- ======================================================== -->
 	<!-- SWC ==================================================== -->
@@ -54,10 +54,22 @@
 				footer="${asdocs.footer}"
 				window-title="${asdocs.window}"
 				left-frameset-width="300"
-				failonerror="true" fork="true">
+				failonerror="true" fork="true"
+				keep-xml="true">
 			<doc-sources path-element="${src.dir}" />
 			<compiler.source-path path-element="${src.dir}" />
 		</asdoc>
+	</target>
+	
+	<target name="insert ASDocs" depends="build ASDocs">
+		<echo>Inserting ASDocs</echo>
+		<zip destfile="${output.dir}/${output.name}-v${output.version}.swc" update="true">
+		    <zipfileset dir="${asdocs.output}/tempdita" prefix="docs">
+		    	<include name="packages.dita" />
+			    <include name="com*.xml" />
+		    </zipfileset>
+		</zip>
+		<delete dir="${asdocs.output}/tempdita" failOnError="false" includeEmptyDirs="true" />
 	</target>
 
 </project>

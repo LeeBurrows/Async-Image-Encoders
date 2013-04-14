@@ -20,7 +20,7 @@
         -->
     </script>
 </head>
-<frameset cols="300,*" border="2" bordercolor="#AAAAAA" framespacing="1">
+<frameset cols="175,*" border="2" bordercolor="#AAAAAA" framespacing="1">
        <frame src="package-frame.html" name="packageFrame" scrolling="no">
        <frameset rows="80,*" border="0" bordercolor="#AAAAAA">
        		<frame src="title-bar.html" name="titlebar" scrolling="no" frameborder="0">
