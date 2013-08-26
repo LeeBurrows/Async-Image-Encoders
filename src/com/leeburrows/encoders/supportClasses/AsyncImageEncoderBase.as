@@ -1,7 +1,7 @@
 /**
  * AsyncImageEncoderBase.as
  * Lee Burrows
- * version 1.0.2
+ * version 1.0.4
  * 
  * Copyright (c) 2013 Lee Burrows
  * 
@@ -74,7 +74,7 @@ package com.leeburrows.encoders.supportClasses
 		/**
 		 * Internal storage for encoded bytes.
 		 */
-		protected var _encodedBytes:ByteArray = null;
+		protected var _encodedBytes:ByteArray;
 		/**
 		 * Internal storage for encoder status.
 		 */
@@ -129,8 +129,11 @@ package com.leeburrows.encoders.supportClasses
 		{
 			if (_isRunning) return null;
 			var result:ByteArray = new ByteArray();
-			_encodedBytes.position = 0;
-			_encodedBytes.readBytes(result, 0, _encodedBytes.bytesAvailable);
+			if (_encodedBytes)
+			{
+				_encodedBytes.position = 0;
+				_encodedBytes.readBytes(result, 0, _encodedBytes.bytesAvailable);
+			}
 			return result;
 		}
 		
@@ -166,10 +169,10 @@ package com.leeburrows.encoders.supportClasses
 				throw new Error("Async image encoder is already running.");
 			if (source==null)
 				throw new ArgumentError("The source parameter is null.");
+			dispose();
+			_encodedBytes = new ByteArray();
 			sourceBitmapData = source.clone();
 			this.frameTime = Math.max(1, frameTime);
-			_isRunning = true;
-			_encodedBytes = new ByteArray();
 			sourceWidth = sourceBitmapData.width;
 			sourceHeight = sourceBitmapData.height;
 			sourceTransparent = sourceBitmapData.transparent;
@@ -177,6 +180,7 @@ package com.leeburrows.encoders.supportClasses
 			currentY = 0;
 			completedPixels = 0;
 			totalPixels = sourceWidth*sourceHeight;
+			_isRunning = true;
 			encodeHead();
 			addEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		}
@@ -188,6 +192,18 @@ package com.leeburrows.encoders.supportClasses
 		{
 			if (!_isRunning) return;
 			cleanUp();
+		}
+		
+		/**
+		 * @inheritDoc
+		 */
+		public function dispose():void
+		{
+			if (_isRunning) return;
+			if (_encodedBytes)
+			{
+				_encodedBytes = null;
+			}
 		}
 		
 		private function enterFrameHandler(event:Event):void
@@ -220,6 +236,8 @@ package com.leeburrows.encoders.supportClasses
 		private function cleanUp():void
 		{
 			_isRunning = false;
+			sourceBitmapData.dispose();
+			sourceBitmapData = null;
 			removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
 		}
 		

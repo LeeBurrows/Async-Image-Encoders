@@ -7,7 +7,7 @@
 
  Lee Burrows
 
- version 1.0.2
+ version 1.0.4
 
  
 
@@ -152,7 +152,7 @@
 
  Lee Burrows
 
- version 1.0.2
+ version 1.0.4
 
  
 
@@ -212,6 +212,13 @@
 
 	 ]]></playerversion>
 </interfaceRec>
+<method name='dispose' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder/com.leeburrows.encoders.supportClasses:IAsyncImageEncoder:dispose' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 Clears any encoded bytes, freeing memory.
+
+		 ]]></description>
+</method>
 <method name='start' fullname='com.leeburrows.encoders.supportClasses:IAsyncImageEncoder/com.leeburrows.encoders.supportClasses:IAsyncImageEncoder:start' isStatic='false' isFinal='false' isOverride='false'  param_names='source;frameTime' param_types='flash.display:BitmapData;int' param_defaults='undefined;20' result_type='void'>
 <description><![CDATA[
 
@@ -261,7 +268,7 @@
 
  Lee Burrows
 
- version 1.0.2
+ version 1.0.4
 
  
 
@@ -400,6 +407,15 @@
 </method>
 <method name='cleanUp' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/private:cleanUp' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
 </method>
+<method name='dispose' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/dispose' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+
+		 
+
+		 Clears any encoded bytes, freeing memory.
+
+		 ]]></description>
+</method>
 <method name='encodeBlock' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:encodeBlock' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
 <description><![CDATA[
 
@@ -519,7 +535,7 @@
 
 		 ]]></description>
 </method>
-<field name='_encodedBytes' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:_encodedBytes' type='flash.utils:ByteArray' isStatic='false' isConst='false' defaultValue='null' >
+<field name='_encodedBytes' fullname='com.leeburrows.encoders.supportClasses:AsyncImageEncoderBase/protected:_encodedBytes' type='flash.utils:ByteArray' isStatic='false' isConst='false' >
 <description><![CDATA[
 
 		 Internal storage for encoded bytes.
@@ -598,7 +614,7 @@
 
  Lee Burrows
 
- version 1.0.2
+ version 1.0.4
 
  
 
@@ -781,7 +797,7 @@
 
  Lee Burrows
 
- version 1.0.2
+ version 1.0.4
 
  
 
@@ -1124,7 +1140,7 @@
 
  Lee Burrows
 
- version 1.0.2
+ version 1.0.4
 
  
 

@@ -62,3 +62,20 @@ A simple usage example:
 			}
 		}
 	}
+	
+###Version History###
+
+* v1.0.1
+    + Initial build.
+
+* v1.0.2
+    + Fixed issue #001 : Validate start() BitmapData Argument.
+    + Fixed issue #002 : Consolidate Events.
+    + Fixed issue #003 : Private _encodedBytes Property Exposed Via Reference.
+
+* v1.0.3
+    + ASDocs inserted into SWC to facilitate IDE code hinting.
+
+* v1.0.4
+    + Added dispose() method.
+    + Fixed issue #004 : Unnecessary memory retention.

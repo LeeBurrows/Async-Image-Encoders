@@ -1,7 +1,7 @@
 /**
  * AsyncBMPEncoder.as
  * Lee Burrows
- * version 1.0.2
+ * version 1.0.4
  * 
  * Copyright (c) 2013 Lee Burrows
  * 

@@ -1,7 +1,7 @@
 /**
  * IAsyncImageEncoder.as
  * Lee Burrows
- * version 1.0.2
+ * version 1.0.4
  * 
  * Copyright (c) 2013 Lee Burrows
  * 
@@ -49,6 +49,11 @@ package com.leeburrows.encoders.supportClasses
 		 * Halts the encoding.
 		 */
 		function stop():void
+		
+		/**
+		 * Clears any encoded bytes, freeing memory.
+		 */
+		function dispose():void
 		
 		/**
 		 * If <code>true</code>, the encoder is active. If <code>false</code>, the encoder has finished or has been stopped.

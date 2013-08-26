@@ -1,7 +1,7 @@
 /**
  * AsyncPNGEncoder.as
  * Lee Burrows
- * version 1.0.2
+ * version 1.0.4
  * 
  * Copyright (c) 2013 Lee Burrows
  * 
@@ -194,6 +194,8 @@ package com.leeburrows.encoders
 			writeChunk(_encodedBytes, 0x49444154, IDAT);
 			// Build IEND chunk
 			writeChunk(_encodedBytes, 0x49454E44, null);
+			//clear memory
+			IDAT = null;
 		}
 		
 		private function writeChunk(destination:ByteArray, type:uint, bytes:ByteArray):void
